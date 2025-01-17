@@ -39,5 +39,20 @@ namespace JournalApp
                 }
             }
         }
+
+        //Read From File
+        public void LoadFromFile(string filename)
+        {
+            Console.WriteLine("Loading from file...");
+
+            using (StreamReader inputFile = new StreamReader(filename))
+            {
+                string line;
+                while ((line = inputFile.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                }
+            }
+        }
     }
 }

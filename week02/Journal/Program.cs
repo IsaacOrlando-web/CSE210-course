@@ -1,5 +1,6 @@
 using System;
 using JournalApp;
+using System.IO;
 
 class Program
 {
@@ -53,7 +54,7 @@ class Program
                     break;
                 case 3:
                     //Load the file
-                    //journal.LoadFromFile();
+                    journal.LoadFromFile("journal.txt");
                     break;
                 case 4:
                     //Save the file
