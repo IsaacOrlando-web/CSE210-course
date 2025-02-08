@@ -11,27 +11,29 @@ namespace Mindfulness
             _name = "Breathing Activity";
             _description = "This breathing activity is designed to help you relax, reduce stress, and refocus your mind. By following a simple rhythmic breathing pattern, you can calm your nervous system and enhance your overall well-being.";
         }
-        public void Run()
+        public void Run() //Tested:Correct
         {
+            
             DisplayStartingMessage();
-            Console.Clear();
             Console.WriteLine($"Get Ready...");
             ShowSpinner();
 
+            DateTime startTime = DateTime.Now;
+            DateTime futureTime = startTime.AddSeconds(_duration);
             //Breath In and Breath out
-            int time = 0;
-            while(time != GetDuration())
+            DateTime currentTime = DateTime.Now;
+            while(currentTime < futureTime)
             {
                 Console.Write("\nBreath In...");
                 ShowCountDown();
                 Console.Write("\n");
                 Console.Write("Breath out...");
                 ShowCountDown();
+                currentTime = DateTime.Now;//Update the time
                 Console.Write("\n");
-
-                //Ten by Ten until time is equal to the duration introduced by the user.
-                time += 10;
             }
+
+            DisplayEndingMessage();
         }
     }
 }

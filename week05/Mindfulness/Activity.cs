@@ -16,7 +16,6 @@ namespace Mindfulness
         {
             _name = "Anonymous";
             _description = "Unkown";
-            _duration = 1000;
         }
 
         public Activity(string name, string description, int duration)
@@ -58,32 +57,21 @@ namespace Mindfulness
         //Methods
         public void DisplayStartingMessage()//Tested: Correct
         {
-            Console.WriteLine($"Welcome to the {GetName()}");
-            Console.WriteLine($"\n{GetDescription()}");
-
-            bool MultiplyByTen = false; //If the number entered by the user is multiply by ten, can access to the program
-
-            while(MultiplyByTen == false)
-            {
-                Console.Write("How many seconds would you like your session to be?: ");
-                string input = Console.ReadLine();
-                _duration = int.Parse(input);
-
-                if(_duration % 10 == 0)
-                {
-                    MultiplyByTen = true;
-                }
-                else{
-                    MultiplyByTen = false;
-                    Console.WriteLine("Only a Number that is a multiple of ten");
-                }
-            }
-            
+            Console.Clear();
+            Console.WriteLine($"----------Welcome to the {GetName()}");
+            Console.WriteLine($"\n{GetDescription()}\n");
+            Console.Write("How many seconds would you like your session to be?: ");
+            string input = Console.ReadLine();
+            _duration = int.Parse(input);
         }
 
-        public void DisplayEndingMessage()//We need the time
+        public void DisplayEndingMessage()//Tested: Correct
         {
-            Console.WriteLine("Great job! Your hard work and dedication truly paid off. Keep up the amazing work!");
+            Console.WriteLine("Great job!");
+            ShowSpinner();
+            Console.WriteLine("Your hard work and dedication truly paid off. Keep up the amazing work!");
+            Console.WriteLine($"Number of second of this session: {GetDuration()}");
+            ShowSpinner();
         }
 
         public void ShowSpinner() //Tested: Correct.
@@ -97,16 +85,11 @@ namespace Mindfulness
             animationStrings.Add("/");
             animationStrings.Add("-");
 
-            int i;
-
-            for(i = 0; i<2; i++)
+            foreach(string s in animationStrings)
             {
-                foreach(string s in animationStrings)
-                {
-                    Console.Write(s);
-                    Thread.Sleep(1000);
-                    Console.Write("\b \b");
-                }
+                Console.Write(s);
+                Thread.Sleep(1000);
+                Console.Write("\b \b");
             }
         }
 
@@ -130,7 +113,7 @@ namespace Mindfulness
             }
 
             Console.Clear();
-            Console.WriteLine("¡Fin del baile!");
+            Console.WriteLine("Goodbye");
         }
 
         public void ShowCountDown()//Tested: Corrected
