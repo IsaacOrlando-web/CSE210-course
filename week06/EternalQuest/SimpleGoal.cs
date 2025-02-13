@@ -16,7 +16,6 @@ namespace EternalQuest
 
         public override void RecordEvent()
         {
-            Console.WriteLine("Congrats!!! You made a good job");
             base.RecordEvent();
         }
 
@@ -28,7 +27,7 @@ namespace EternalQuest
 
         public override string GetStringRepresentation()//Ready to save on File .txt
         {
-            return $"Simple Goal: {_description}, {_points}, {_isCompleted}";
+            return $"Simple Goal:{_shortName}, {_description}, {_points}, {_isCompleted}";
         }
     }
 }

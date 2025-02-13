@@ -48,6 +48,7 @@ public class Goal
     //Class Behaviors
     public virtual void RecordEvent() //mark that is has been accomplished another time
     {
+        Console.WriteLine("Congrats!!! You made a good job");
         Console.WriteLine($"You have earned {_points} points");
         //This method should do whatever is necessary for each specific kind of goal, such as marking a simple goal complete and adding to the number of times a checklist goal has been completed. It should return the point value associated with recording the event (keep in mind that it may contain a bonus in some cases if a checklist goal was just finished, for example).
     }
