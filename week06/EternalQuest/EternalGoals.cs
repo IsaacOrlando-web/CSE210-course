@@ -24,7 +24,7 @@ namespace EternalQuest
 
         public override string GetStringRepresentation()
         {
-            return $"EternalGoal: {_shortName}, {_description}, {_points}";
+            return $"EternalGoals,{_shortName},{_description},{_points}";
         }
     }
 }

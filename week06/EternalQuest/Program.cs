@@ -1,3 +1,5 @@
+//Exceeding requirements:This program allows multiple users to create and manage their goals individually. Each user has their own file where goals and progress are saved. When logging in with their name, the program loads existing data or creates a new file for new users.
+
 using System;
 using EternalQuest;
 
@@ -5,10 +7,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        EternalGoals eternal = new EternalGoals("Read Every day", "Read any book every day", 30);
-        eternal.RecordEvent();
-        Console.WriteLine(eternal.IsComplete());
-        Console.WriteLine(eternal.GetStringRepresentation());
-        Console.WriteLine(eternal.GetDetailsString());
+        GoalManager goalManager = new GoalManager();
+        goalManager.Start();
     }
 }
